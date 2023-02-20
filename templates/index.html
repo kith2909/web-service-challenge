@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="row g-3">
+
+        <p style="color: #f19090">
+            {{ msg }}
+        </p>
+        <p style="color: #449044">
+            {{ ok }}
+        </p>
+
+</div>
+{% endblock %}
+{% block description %}
+<div>
+    {% if mult %}
+        {% for line in client_data %}
+             <p style="text-align: justify;">{{ line }}</p>
+        {% endfor %}
+    {% else %}
+        <p>{{ client_data }}</p>
+    {% endif %}
+</div>
+{% endblock %}
