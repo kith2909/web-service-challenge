@@ -7,11 +7,13 @@ create_texts_table = """CREATE TABLE IF NOT EXISTS texts(
         str_len int NOT NULL,
         created_on date DEFAULT CURRENT_DATE); 
         """
-
-
+DATABASE = 'flask_db'
+PASSWORD = ''
+HOST = 'localhost'
+USER = 'postgres'
 class FDataBase:
-    def __init__(self, db, table):
-        self.db = db
+    def __init__(self):
+        self.db = DATABASE
         self.connection = self.create_db_connection(self)
         self.cursor = self.connection.cursor()
         self.execute_query(create_texts_table)
@@ -23,10 +25,10 @@ class FDataBase:
         try:
             # connect to exist database
             connection = psycopg2.connect(
-                host='localhost',
-                user='postgres',
-                password='290979',
-                database=self.db,
+                host=HOST,
+                user=USER,
+                password=PASSWORD,
+                database=DATABASE,
                 port=6000
             )
             connection.autocommit = True

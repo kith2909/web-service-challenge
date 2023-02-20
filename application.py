@@ -6,7 +6,7 @@ from collections import Counter
 import dicttoxml
 
 app = Flask(__name__)
-text_db = model.FDataBase('flask_db', 'texts')
+text_db = model.FDataBase()
 dict_lines = None
 file_name = None
 list_longest = None
